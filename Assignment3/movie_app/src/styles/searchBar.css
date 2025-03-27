@@ -1,0 +1,21 @@
+form {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+form input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Unlock";
+    border-radius: 0.5em;
+    padding: 0.8em;
+    width: 70%;
+}
+.search-button {
+    padding: 0;
+    margin-left: 1em;
+    border: none;
+    color: #b64931;
+    background-color: #b64931;
+}
