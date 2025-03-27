@@ -1,0 +1,72 @@
+.header {
+    display: grid;
+    grid-template-columns: repeat(4, auto); 
+    color: #ffc567;
+    font-family: "Unlock";
+	width: 90%;
+	margin: 0.5em auto;
+    padding: 0.5em 0.8em;
+    border: solid #b64931;
+	border-radius: 0.6em;
+    background-color: #b64931;
+    justify-items: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    position: relative; 
+    z-index: 2;
+}
+.header h1 {
+    text-align: center;
+}
+.header h1 a {
+    font-size: 2.9em;
+    text-shadow: 2px 2px black;
+    color: #ffc567;
+    transition: all 0.3s ease;
+}
+.header h1 a:hover {
+    color: #00995e;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-content: center;
+}
+nav a {
+    margin: 0.5em 0.8em;
+    color: #ffc567;
+    text-decoration: none;
+    border: solid #b64931;
+    border-radius: 1em;
+    text-align: center;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+nav a:hover {
+    background-color: #6c7b9f;
+    border-color: #6c7b9f;
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button,
+.login-button {
+    font-family: "Unlock";
+    color: white;
+    background-color: #b64931;
+    border: solid #b64931;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: auto; 
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.logout-button:hover,
+.login-button:hover {
+    color: #ffc567;
+    background-color: #6c7b9f;
+    border-color: #6c7b9f;
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
