@@ -18,7 +18,7 @@ Required pages for this assignment:
   - If the user is logged in, you should display a logout button so they can logout.
 - **View Account**: This page should show the user their account details (except password). Its purpose is largely to give them access to their API key.
   - It should also include a button/link that allows them to request a new API key, should theirs be compromised.
-- **Index** The index page for the main part of your site should provide brief details about your API, as well as a list (with descriptions) of routes and endpoints. This page is basically your API documentation and should tell the users what options are available to them. This is just straight HTML.
+- **Index** The index page for the main part of your site should provide brief details about your API, as well as a list (with descriptions) of routes and endpoints. This page is basically an API documentation and should tell the users what options are available to them. 
 
 ### Other details
 
@@ -31,12 +31,9 @@ Complete appropriate routing and request completion for each endpoint below. Eve
 
 ### Movies
 
-- **GET** & `/movies/` - should return all movies, but not all data.
-  - Consider what the main display of your movies might need to include (id, cover, title, rating - maybe? ), and only return that.
-  - For testing this, you might want to at least temporarily limit it to something like the first 100 rows.
+- **GET** & `/movies/` - returns all movies, but not all data just some main features of the movie (id, cover, title, rating,...)
 - **GET** & `/movies/{id}` - returns the all columns of movie data for a specific movie.
 - **GET** & `/movies/{id}/rating` - returns the rating value for a specific movie.
-  - this is mostly an efficiency endpoint, so later we can get an updated rating without needing to retrieve all the data again.
 
 ### toWatchList
 
@@ -56,7 +53,7 @@ Complete appropriate routing and request completion for each endpoint below. Eve
 - **PATCH** & `/completedwatchlist/entries/{id}/times-watched` - requires an api key and increments the number of times watched and updates the last date watched of the appropriate movie.
 - **DELETE** & `/completedwatchlist /entries/{id}` - requires and api key and movieID and deletes the appropriate movie from the completedWatchList.
 
-_Note:_ because the movie table contains an already-computed average rating, you need to recompute this average whenever a user adds or updates their rating. You can use the following formulas to determine the new rating.
+_Note:_ because the movie table contains an already-computed average rating, it is needed to recompute this average whenever a user adds or updates their rating by the following formulas:
 
 #### Adding a new rating
 
@@ -91,3 +88,63 @@ $$
 ### Filters
 
 Extend up to four of the above GET endpoints to support filters. You should have at least four filters total, implemented across at least 3 different endpoints. This might include things like: filtering all movies by title or genre, toWatch movies by priority, most watched movies, best rated, etc.
+
+## Assignment 3
+
+For this assignment I'm going to build a React Front-end to make use of the API from assignment 2. 
+
+### Authentication
+
+This application should have a login page that is separate from the page you created in A2, and is instead part of the react front-end. It will use the auth endpoint you created to retrieve the API key based on the user's username and password.
+
+API key should be stored globally using `useContext` (and like with php, if the context does not exist, should redirect to the login page)
+
+### A Note About the Movie List
+
+- From a UX perspective, you don't really want to show the user 4000 movies all at once.
+- Including some sort of pagination as an additional feature
+
+### A Couple of Technical Requirements
+
+- Can use the API in the A2 folder (you don't need to copy it into A3)
+- React Router should be used for all necessary routing to build a Single Page Application.
+  - Should have separate routes for different views. S
+  - Should also use path variables and url parameters as part of your routes where appropriate.
+
+### Minimal Requirements & User Stories
+
+- I want to be able to see all the movies in the catalogue
+- I want to be able to find more detailed information about a movie
+- I want to have at least one way to filter the movies in the catalog
+  - i.e Maybe I want to find similar movies (i.e. "other romances", "other movies by Ghibli")
+- I want be able to search for a specific movie
+- I want to "quick add" a movie to my plan-to-watch list from the main page, with no notes and a default priority
+- I want to see all the movies on my watch list sorted by priority
+- I want to be able to update the priority of a movie on my watchlist
+- I want be able to mark a movie as watched once I've seen it (which should remove it from my watch list and place it on the completed list)
+- I want to be able to add a score onto a movie that I've seen (either when moving it to completed or later)
+- I want to be able to see all my finished movies sorted by score or date watched (developers choice)
+- I want to be able to update the number of times I've watched a movie on my completed list if I've watched it again.
+- I want to be able to remove things from my planning list even if I don't end up watching it (e.g., I added the wrong one, or I changed my mind, etc)
+- I want to have a pleasant user experience when using your application
+
+## Project Challenges
+
+For assignment 2, before the assignment, we had a lab to practice the same task with less endpoints and much smaller database but it already had a significant amount of code repititions. When it came to this assignment, there are a large number of smaller tasks to be completed, more endpoints to be tested, as well as repititions to be reduced. Therefore, this is an assignment where good design choices are important to avoid repeating codes (validating API key for example).
+
+For assignment 3, I encountered lots of difficulties with CORS header, which is needed in the JSON response in the API from assignment 2 in order to make API requests from local app. But with the help of my instructor, the problem was resolved as below. However, she also mentioned that this solution is not ideal when it comes to matter of security. So this might be what I still need to learn more to effectively resolve the problem.
+
+                header("Content-Type: application/json; charset=UTF-8");
+                header("Access-Control-Allow-Origin: *");  
+                header("Access-Control-Allow-Methods: *");
+                header("Access-Control-Allow-Headers: *");
+            
+Another challenge I encountered is that the columns for production companies and genre in the data for the movies table (provided by my instructor) contain JSON objects, which basically means the data isn't normalized, and cannot be used directly to filter the movies (by genre or production companies) or display in the movie details part. I know that I need to split that data out into its own tables (a genre table, and a movie_genre table for example) using a one-off script as she mentioned it in the Readme file of the assignment, but my problem is I don't know how to this because it wasn't part of the course. I tried to do it by following some instructions on Youtube as well as other online sources but still didn't work. So I skipped this part as the assignment had deadline and I didn't have enough time to keep trying. I'm still trying to figure out how to do this.
+
+## Techniques
+
+- HTML
+- CSS
+- PHP
+- React
+- JavaScript/ JavaScript XML
