@@ -1,0 +1,418 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Unlock&display=swap');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/*#########################################
+
+
+############################################*/
+:root {
+    --main-color: #b64931;
+    --2nd-main-color: #ffc567;
+}
+
+table {
+    border-collapse: collapse;
+    border: solid black;
+    letter-spacing: 0.1em;
+    width: 90%;
+    margin: 1em auto;
+}
+th, td {
+    border: 0.1em solid black;
+    padding: 1em;
+    text-align: center;
+}
+td {
+    display: table-cell;
+    vertical-align:middle;
+	padding: 0.5em 1em 0.5em 0.5em;
+}
+th {
+    display: table-cell;
+    vertical-align:middle;
+    font-weight: bold;
+    text-align: center;
+	padding: 1em;
+    background-color: var(--2nd-main-color);
+    color: var(--main-color);
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+}
+
+strong {
+    font-weight: 700;
+}
+
+textarea {
+    text-align: center;
+}
+
+input {
+    cursor: pointer;
+}
+/*#########################################
+
+HOME COMPONENT
+
+############################################*/
+.movie-list h1,
+.watch-list h1,
+.completed-list h1,
+.login-page h1,
+.search-results h1,
+.user-stats h1 {
+    font-family: "Unlock";
+    width: 50%;
+    font-weight: 600;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 0.6em;
+    color: var(--main-color);
+    background-color: var(--2nd-main-color);
+    margin: 0.5em auto 0.5em auto;
+    padding: 0.5em;
+}
+
+.pagination {
+    display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.pagination button,
+.movie-section button,
+.add-to-watchlist button,
+.movie-results button {
+    font-family: "Unlock";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00995e;
+    background-color: var(--2nd-main-color);
+    border: solid var(--2nd-main-color);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0.8em auto 1.2em auto; 
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+.pagination button:hover,
+.movie-section button:hover,
+.movie-card button:hover
+.add-to-watchlist button:hover,
+.movie-results button:hover,
+.update-priority:hover,
+.watched:hover,
+.update-times-watched:hover,
+.update-rating:hover,
+.add-twl-button:hover,
+.add-twl-submit:hover, 
+.update-rating-submit:hover {
+    color: var(--2nd-main-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pagination button.active {
+    transform: scale(1.2);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: var(--2nd-main-color);
+}
+.pagination button:disabled {
+    cursor: not-allowed;
+}
+
+p {
+    /* font-family: "Unlock"; */
+    text-align: center;
+    margin-top: 1em;
+}
+
+.movie-section {
+    display: grid;
+    grid-template-columns: repeat(5, 2fr); 
+    gap: 1.5em; 
+    padding: 1em;
+}
+
+.movie-item,
+.searched-movie {
+    padding: 1em;
+    text-align: center;
+    border-radius: 0.5em;
+    transition: transform 0.3s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+.movie-item:hover,
+.watchlist-container .movie-card:hover,
+.completedlist-container .movie-card:hover,
+.searched-movie:hover {
+    transform: scale(1.05); 
+    color: white;
+    border: 0.1em solid #ccc;
+    padding: 1em;
+    text-align: center;
+    background: #0B3F30;
+    border-radius: 0.5em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+.movie-item h2,
+.searched-movie h2,
+.movie-card h2 {
+    font-family: "Unlock";
+    margin: 0 auto 0.5em auto;
+    text-align: center;
+}
+
+.movie-poster {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+}
+
+.movie-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    cursor: pointer; 
+}
+  
+/*#########################################
+
+MOVIE CARD COMPONENT
+
+############################################*/
+.movie-card {
+    width: 70%;
+    margin: 1em auto;
+    padding: 1em;
+    text-align: center;
+    border-radius: 0.5em;
+    transition: transform 0.3s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.movie-card img,
+.searched-movie {
+    width: 20em;
+    height: auto;
+    margin: 0.5em auto;
+    border-radius: 0.5em;
+}
+
+.movie-card input {
+    border-radius: 0.4em;
+    padding: 0.5em;
+    margin: 1em auto 0.5em auto;
+}
+
+.movie-card button {
+    font-family: "Unlock";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00995e;
+    background-color: var(--2nd-main-color);
+    border: solid var(--2nd-main-color);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 1em auto 0 auto; 
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.movie-card .delete-button {
+    margin: 1.2em auto 0.5em auto;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.movie-card .delete-button:hover {
+    color: white;
+    background-color: red;
+    border: red;
+    transform: scale(1.2);
+}
+
+.movie-detail textarea {
+    width: 60%;
+    padding: 0.5em;
+    margin: 1em auto;
+}
+
+.movie-detail h1 {
+    font-family: "Unlock";
+    font-size: xx-large;
+    margin: 0 auto 0.5em auto;
+    text-align: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 50%;
+}
+
+.update-priority {
+    display: flex;
+    flex-direction: row;
+}
+.update-priority button {
+    margin-left: 0;
+}
+.update-priority input {
+    width: 30%;
+    margin: 0.85em 0.5em auto auto;
+}
+
+/*#########################################
+
+WATCH LIST, COMPLETED LIST, ADD TO WATCH LIST, SEARCH RESULTS, USER STATS
+
+############################################*/
+.watchlist-container,
+.completedlist-container,
+.movie-results {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr); 
+    gap: 1.5em; 
+    padding: 1em;
+}
+.watchlist-container .movie-card,
+.completedlist-container .movie-card {
+    border-radius: 0.5em;
+    transition: transform 0.3s;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.watch-list h3,
+.completed-list h3 {
+    font-family: "Unlock";
+    font-size: x-large;
+    margin: 0 auto 0.5em auto;
+    text-align: center;
+}
+
+.add-to-watchlist {
+    margin: 0.2em auto 0 auto;
+    width: 60%;
+}
+
+.rating input {
+    margin-left: 1em;
+}
+
+.stats p {
+    font-family: "Unlock";
+}
+
+.feedback-message,
+.success-message {
+    color: green; /* Success */
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+  
+.feedback-message.error,
+.error-message {
+    color: red; /* Error */
+}
+  
+/*#########################################
+
+LOGIN PAGE
+
+############################################*/
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 0.5em auto 0 auto;
+    padding: 0.5em;
+    width: 30%;
+    transition: border-color 0.3s;
+}
+.login-page form input {
+    justify-items: center;
+    margin: 1em auto 1em auto;
+    padding: 1em;
+    border-color: black;
+    border-radius: 1em;
+    width: 50%;
+    transition: border-color 0.3s;
+}
+.login-page form input:hover,
+.login-page form input:focus {
+    border-color: var(--2nd-main-color);
+}
+.login-button {
+    margin: 0.5em auto; 
+}
+
+/*#########################################
+
+FILTER MOVIES
+
+############################################*/
+.filter-container {
+    width: 20%;
+    font-family: "Unlock";
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-left: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#year-filter {
+    font-family: "Unlock";
+    margin-left: 1em;
+}
