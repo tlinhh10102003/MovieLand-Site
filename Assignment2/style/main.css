@@ -1,0 +1,535 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Unlock&display=swap');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border: solid black;
+    letter-spacing: 0.1em;
+    width: 90%;
+    margin: 1em auto;
+}
+th, td {
+    border: 0.1em solid black;
+    padding: 1em;
+    text-align: center;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+	padding: 0.5em 1em 0.5em 0.5em;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: center;
+	padding: 1em;
+    background-color: var(--2nd-color-primary);
+    color: var(--color-primary);
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+}
+
+li {
+    display: list-item;
+    padding: 0.8em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    max-width: 1600px;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: "Unlock";
+}
+
+strong {
+    font-weight: 700;
+}
+em {
+    font-style: italic;
+}
+
+:root {
+    --bgcolor: #dccdb8;
+    --color-primary: #b64931;
+    --2nd-color-primary: #ffc567;
+    --3rd-color-primary: #00995e;
+}
+
+.error {
+    color: red;
+}
+.highlight {
+    color: deeppink;
+    font-weight: 600;
+}
+/*#########################################*/
+
+/*#########################################
+
+HomePage
+
+############################################*/
+#homepage { 
+    background-image: url('../1.png');
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    height: auto;
+}
+#nav-bar {
+    font-family: "Unlock";
+    display: grid;
+	width: 90%;
+	margin: auto;
+    grid-template-columns: 1.5fr 2fr 1fr;
+    margin-top: 0.5em;
+    padding: 1em 0.5em;
+    border: solid var(--color-primary);
+	border-radius: 2em;
+    background-color: var(--color-primary);
+	justify-items: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    position: relative; 
+    z-index: 2;
+}
+#nav-bar img, 
+#filmlist img {
+    position: absolute;
+    width: 1.8em;
+    margin: -24px 0 0 0.5em;
+    transition: transform 0.3s ease;
+}
+#nav-bar img:hover,
+#filmlist img:hover,
+#login img:hover, 
+#create-acc img:hover, 
+#view-acc img:hover, 
+#api img:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+#header {
+    font-weight: 600;
+    font-size: 3em;
+	margin-left: 0.5em;
+    text-shadow: 2px 2px black;
+}
+#header a {
+    text-decoration: none;
+    color: var(--2nd-color-primary);
+    width: 20%;
+    transition: all 0.3s ease;
+}
+#header a:hover {
+    color: var(--3rd-color-primary);
+}
+#nav-bar form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#nav-bar form input {
+    font-family: "Unlock";
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+#nav-bar form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(108, 123, 159, 0.5);
+}
+#nav-bar form button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: var(--color-primary);
+    background-color: var(--color-primary);
+}
+#nav-bar form i {
+    position: absolute;
+    margin: 0 0 0 12em;
+}
+
+#options {
+    text-shadow: 2px 2px black ;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-content: center;
+}
+#options a {
+    margin: 0.5em 1em;
+    color: var(--2nd-color-primary);
+    text-decoration: none;
+    border: solid var(--color-primary);
+    border-radius: 1em;
+    text-align: center;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+#options a:hover {
+    background-color: #6c7b9f;
+    border-color: #6c7b9f;
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.movies-list, 
+#list,
+#endpoints {
+    width: 80%;
+    background-color: rgba(249, 242, 234, 0.9) ;
+    border: solid rgba(249, 242, 234, 0.9);
+    border-radius: 1em;
+    margin: 1.5em auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+.movies-list h1, 
+#filmlist h1, 
+#api h1 {
+    font-family: "Unlock";
+    width: 50%;
+    font-weight: 600;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 0.6em;
+    color: var(--color-primary);
+    background-color: var(--2nd-color-primary);
+    margin: 0.5em auto 0.5em auto;
+    padding: 0.5em;
+}
+
+#homepage p {
+    width: 20%;
+    background-color: rgba(249, 242, 234, 0.9);
+    border: solid black;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em auto;
+	text-align: center;
+	font-weight: 600;
+}
+
+/*#########################################
+
+Film List page
+
+############################################*/
+#filmlist, 
+#login, 
+#create-acc, 
+#api {
+    background-image: url("../bg.png");
+    background-size: cover;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    height: auto;
+}
+#filmlist #header {
+    font-family: "Unlock";
+    display: grid;
+	width: 90%;
+	margin: auto;
+    margin-top: 0.2em;
+    padding: 0.3em;
+    padding-left: 0.5em;
+    border: solid var(--color-primary);
+	border-radius: 0.6em;
+    background-color: var(--color-primary);
+}
+#filmlist #header a {
+    text-decoration: none;
+    color: var(--2nd-color-primary);
+}
+#filmlist #header a:hover {
+    color: var(--3rd-color-primary);
+}
+#filmlist img, 
+#login img, 
+#create-acc img, 
+#view-acc img, 
+#api img {
+    position: absolute;
+    width: 1.8em;
+    margin: -24px 0 0 6.1em;
+}
+
+#list h1 {
+    font-family: "Unlock";
+}
+
+.page-section {
+    background-color: rgba(249, 242, 234, 0.9);
+    text-align: center;
+    margin: 1em 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 0.5em;              
+    padding: 1em;            
+    flex-wrap: wrap;
+}
+.page-section a {
+    padding: 0.2em;
+    color: var(--2nd-color-primary);
+    text-decoration: none;
+    border-radius: 0.2em;
+    transition: background-color 0.3s;
+}
+.page-section a:first-of-type,
+.page-section a:last-of-type {
+    color: black;
+    font-weight: 600;
+}
+
+.page-section a:hover {
+    background-color: #6c7b9f;
+    border-color: #6c7b9f;
+    color: white;
+}
+
+.page-section .active {
+    font-weight: 600;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/*#########################################
+
+Create account page
+
+############################################*/
+#success-message p {
+    color: green;
+	text-align: center;
+	background-color: rgba(249, 242, 234, 0.9);
+	border: solid rgba(249, 242, 234, 0.9);
+	border-radius: 0.5em;
+	width: 40%;
+    margin: 1em auto 5em auto;
+	padding: 0.2em;
+	font-weight: 600;
+}
+#sign-up {
+    font-family: "Unlock";
+    background-color: rgba(249, 242, 234, 0.9); 
+    border: solid black;
+    border-radius: 0.5em;
+    width: 30%;
+    margin: 10em auto 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+#sign-up span {
+	display: flex;
+	justify-content: center;
+	margin-top: 0;
+	text-align: center;
+}
+
+/*#########################################
+
+Log In page
+
+############################################*/
+#login-form,  
+#acc-info {
+    font-family: "Unlock";
+    background-color: rgba(249, 242, 234, 0.9); 
+    border: solid black;
+    border-radius: 0.5em;
+    width: 30%;
+    margin: 12em auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+#login-form h1,
+#sign-up h1,
+#acc-info h1 {
+    font-family: "Unlock";
+    font-size: large;
+    text-align: center;
+    color: white;
+    background-color: var(--2nd-color-primary);
+    border-bottom: solid black;
+    border-radius: 0.4em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+#login-form form input,
+#sign-up form input {
+    display: flex;
+    justify-items: center;
+    margin: 0.5em auto 0 auto;
+    padding: 0.5em;
+    border-color: black;
+    border-radius: 1em;
+    width: 50%;
+    transition: border-color 0.3s;
+}
+#login-form form input:focus,
+#sign-up form input:focus {
+    border-color: var(--color-primary); 
+}
+#login-form form button,
+#sign-up form button {
+    font-family: "Unlock";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--3rd-color-primary);
+    background-color: var(--2nd-color-primary);
+    border: solid var(--2nd-color-primary);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0.5em auto 1.2em auto; 
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+#login-form form button:hover,
+#sign-up form button:hover {
+    color: var(--2nd-color-primary);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+#login #header, 
+#create-acc #header, 
+#view-acc #header,
+#api #header {
+    display: grid;
+	width: 90%;
+	margin: auto;
+    font-family: "Unlock";
+    margin-top: 0.2em;
+    padding: 0.3em;
+    padding-left: 0.5em;
+    border: solid var(--color-primary);
+	border-radius: 0.6em;
+    background-color: var(--color-primary);
+	justify-items: auto;
+}
+label {
+	margin: 0.5em;
+    display: block; 
+    text-align: center;
+}
+
+/*#########################################
+
+View Account page
+
+############################################*/
+#view-acc {
+    background-image: url("../bg.png");
+    background-size: auto;
+    height: auto;
+}
+#acc-info form {
+	display: flex;
+}
+#acc-info form button,
+#acc-info form a {
+    font-family: "Unlock";
+    color: var(--3rd-color-primary);
+    background-color: var(--2nd-color-primary);
+    border: solid var(--2nd-color-primary);
+    border-radius: 0.5em;
+    padding: 0.5em;
+	margin: 1em auto;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+#acc-info form a {
+	text-align: center;
+	text-decoration: none;
+	font-size: 0.82em;
+    width: 20%;
+    padding: 0.5em;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+#acc-info form button:hover,
+#acc-info form a:hover {
+	color: var(--2nd-color-primary);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.success-message {
+    color: green;
+    margin: 10px 0;
+    text-align: center;
+}
+/*#########################################
+
+API Documentation page
+
+############################################*/
+#api h1 {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+#api h2 {
+    border-radius: 0.6em;
+	text-align: center;
+    font-weight: 600;
+    width: 40%;
+    color: var(--color-primary);
+    background-color: rgba(249, 242, 234, 0.9);
+    padding: 0.5em;
+	margin: auto;
+}
+#api p {
+    margin: 1em;
+}
